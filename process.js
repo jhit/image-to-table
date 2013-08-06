@@ -82,7 +82,7 @@ function formSubmit(e)
         
         ctx.drawImage(img,0,0);
         //1 row first
-        var tableHtml = '<table height="' + canvas.height + '" width="'+ canvas.width +'">';
+        var tableHtml = '<table cellpadding="0" cellspacing="0" height="' + canvas.height + '" width="'+ canvas.width +'">';
         for (var j = 0; j < canvas.height; j+=pxSkip)
         {
             tableHtml += '<tr>';
@@ -90,7 +90,7 @@ function formSubmit(e)
             {
                 //getImage data is slow, change to be whole width of canvas & iterate that.
                 imageData = ctx.getImageData(i,j,1,1).data;
-                tableHtml += '<td style="background-color: rgb('+ imageData[0]+','+imageData[1]+','+imageData[2]+');"></td>'
+                tableHtml += '<td style="height:'+pxSkip+'px; width:'+pxSkip+'px; background-color: rgb('+ imageData[0]+','+imageData[1]+','+imageData[2]+');"></td>'
                 //console.log(imageData);
             }
             tableHtml += '</tr>';
